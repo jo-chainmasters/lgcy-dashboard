@@ -1,0 +1,91 @@
+<div class="p-card grid mt-3 m-1">
+  <div class="p-card m-1 mr-5 col">
+    <div class="grid">
+      <div class="col-12">
+        Current Block
+      </div>
+      <div class="col-12" style="font-size: xxx-large">
+        <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+        <span *ngIf="dashboardData"> {{ dashboardData.currentBlock }} </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card m-1 mr-5 col">
+    <div class="grid">
+      <div class="col-12">
+        Total Transaction
+      </div>
+      <div class="col-12" style="font-size: xxx-large">
+        <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+        <span *ngIf="dashboardData"> {{ dashboardData.totalTransactions }} </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card m-1 mr-5 col">
+    <div class="grid">
+      <div class="col-12">
+        Total Accounts
+      </div>
+      <div class="col-12" style="font-size: xxx-large">
+        <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+        <span *ngIf="dashboardData"> {{ dashboardData.totalAccounts }} </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="p-card m-1 mr-5 col">
+    <div class="grid">
+      <div class="col-12">
+        Total Nodes
+      </div>
+      <div class="col-12" style="font-size: xxx-large">
+        <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+        <span *ngIf="dashboardData"> {{ dashboardData.totalNodes }} </span>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="p-card m-1 col">
+    <div class="grid">
+      <div class="col-12">
+        Frozen LGCY
+      </div>
+      <div class="col-12" style="font-size: xxx-large">
+        <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+        <span *ngIf="dashboardData"> {{ dashboardData.frozenLgcy }} </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="p-card grid mt-3 m-1">
+
+  <div class="p-card m-1 mr-5 col">
+    Transaction count of the last
+    <p-dropdown [options]="hourOptions" [(ngModel)]="selectedHours" optionLabel="name" (onChange)="onChangeHours($event)"></p-dropdown>
+    hours
+    <p-chart type="bar" [data]="dataHours" [options]="options" width="100%"></p-chart>
+  </div>
+
+  <div class="p-card m-1 mr-5 col">
+    Transaction count of the last
+    <p-dropdown [options]="dayOptions" [(ngModel)]="selectedDays" optionLabel="name" (onChange)="onChangeDays($event)"></p-dropdown>
+    days
+    <p-chart type="bar" [data]="dataDays" [options]="options" width="100%"></p-chart>
+  </div>
+
+</div>
+
+<div class="p-card grid mt-3 m-1">
+  <div class="p-card m-1 mr-5 col">
+    Table Last Blocks
+  </div>
+
+  <div class="p-card m-1 mr-5 col">
+    Table Last Transactions
+  </div>
+</div>

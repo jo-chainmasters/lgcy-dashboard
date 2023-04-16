@@ -1,0 +1,18 @@
+<p-card>
+  <div class="flex justify-content-center">
+    <input
+      pInputText
+      placeholder="Wallet Address"
+      [(ngModel)]="searchTerm"
+      (keyup.enter)="search()"
+      style="width: 90%"
+    />
+    <button
+      pButton
+      type="button"
+      (click)="search()"
+      style="width: 10%"
+      label="Search"
+    ></button>
+  </div>
+</p-card>

@@ -1,0 +1,14 @@
+<div *ngIf="transactionType === 'TriggerSmartContract'">
+  TriggerSmartContract
+</div>
+
+<div *ngIf="transactionType === 'CreateSmartContract'">CreateSmartContract</div>
+
+<div *ngIf="transactionType === 'TransferAssetContract'">
+  TransferAssetContract
+</div>
+
+<div *ngIf="transactionType === 'VoteWitnessContract'">
+  <ng-container *ngFor="let item of transactionValue.votes; index as i">
+  </ng-container>
+</div>
