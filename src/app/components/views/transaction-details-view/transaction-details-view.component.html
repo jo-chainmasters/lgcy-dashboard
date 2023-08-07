@@ -1,0 +1,55 @@
+<div class="flex">
+<p-card class="flex-grow-1 pr-2">
+  <span *ngFor="let keyValue of keyValues">
+    {{ labelPrefix + keyValue.key | translate}}
+    : {{(keyValue.key === 'type') ? ('common.transactionTypes.' + keyValue.value | translate) : keyValue.value}}
+    <hr>
+  </span>
+</p-card>
+
+
+<p-card *ngIf="transaction" class="flex-grow-1">
+  <app-transfer-usdl
+    *ngIf="transaction.type === 'TransferContract'"
+    [transaction]="transaction"
+  >
+  </app-transfer-usdl>
+
+  <app-trigger-smart-contract
+    *ngIf="transaction.type === 'TriggerSmartContract'"
+    [transaction]="transaction"
+  >
+  </app-trigger-smart-contract>
+
+  <app-create-smart-contract
+    *ngIf="transaction.type === 'CreateSmartContract'"
+    [transaction]="transaction"
+  >
+  </app-create-smart-contract>
+
+  <app-freeze-usdl
+    *ngIf="transaction.type === 'FreezeBalanceContract'"
+    [transaction]="transaction"
+  >
+  </app-freeze-usdl>
+
+  <app-unfreeze-usdl
+    *ngIf="transaction.type === 'UnfreezeBalanceContract'"
+    [transaction]="transaction"
+  >
+  </app-unfreeze-usdl>
+
+  <app-vote
+    *ngIf="transaction.type === 'VoteWitnessContract'"
+    [transaction]="transaction"
+  >
+  </app-vote>
+
+  <app-create-gb
+    *ngIf="transaction.type === 'WitnessCreateContract'"
+    [transaction]="transaction"
+  >
+  </app-create-gb>
+</p-card>
+
+</div>

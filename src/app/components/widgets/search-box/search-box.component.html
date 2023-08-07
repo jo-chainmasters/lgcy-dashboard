@@ -1,0 +1,18 @@
+<div class="flex mb-2">
+  <p-card class="flex-grow-1">
+      <input
+        pInputText
+        style="width: 90%"
+        [placeholder]="'common.searchWidget.placeholder' | translate"
+        [(ngModel)]="searchTerm"
+        (keyup.enter)="search()"
+      />
+      <button
+        pButton
+        style="width: 10%"
+        type="button"
+        (click)="search()"
+        [label]="'common.searchWidget.search' | translate"
+      ></button>
+  </p-card>
+</div>

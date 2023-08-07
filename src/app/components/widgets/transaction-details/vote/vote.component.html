@@ -1,0 +1,12 @@
+<span class="flex">
+  <span class="flex-grow-1">{{'vote.gb' | translate}}</span>
+    <span class="flex-grow-0">{{'vote.voteCount' | translate}}</span>
+</span>
+<hr>
+<span *ngFor="let v of transaction.transactionValue.votes">
+  <span class="flex">
+    <span class="flex-grow-1">{{v.voteAddress}}: </span>
+    <span class="flex-grow-0">{{v.voteCount}}</span>
+    </span>
+  <hr>
+</span>

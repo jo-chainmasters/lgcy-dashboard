@@ -1,0 +1,70 @@
+<p-table
+  [value]="transactions"
+  [lazy]="true"
+  (onLazyLoad)="load($event)"
+  dataKey="hash"
+  [paginator]="true"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [rows]="10"
+  [totalRecords]="totalRecords"
+  [loading]="loading"
+  sortField="timestamp"
+  [sortOrder]="-1"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Block</th>
+      <th pSortableColumn="timestamp">
+        Timestamp <p-sortIcon field="timestamp" />
+      </th>
+      <th>Type</th>
+      <th>Hash</th>
+      <th>Sender</th>
+      <th>Receiver</th>
+      <th>Amount</th>
+      <th>Fees</th>
+      <th>Memo</th>
+      <th>Details</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-tx>
+<!--    <p-overlayPanel #txDetails appendTo="body">-->
+<!--      <app-transaction-details-->
+<!--        [transactionValue]="tx.transactionValue"-->
+<!--        [transactionType]="tx.type"-->
+<!--      ></app-transaction-details>-->
+<!--    </p-overlayPanel>-->
+
+    <tr>
+      <td>{{ tx.blockNumber }}</td>
+      <td>{{ tx.timestamp }}</td>
+      <td>{{ 'common.transactionTypes.' + tx.type | translate}}</td>
+      <td>
+        <a href="/transaction/{{ tx.hash }}">{{ tx.hash | cutDot }}</a>
+      </td>
+      <td>
+        <a href="/account/{{ tx.sender }}">{{ tx.sender | cutDot }}</a>
+      </td>
+      <td>
+        <a href="/account/{{ tx.receiver }}">{{ tx.receiver | cutDot }}</a>
+      </td>
+      <td>{{ tx.amount }}</td>
+      <td>{{ tx.fee }}</td>
+      <td><span [pTooltip]="tx.memo">{{ tx.memo | cutDot: 7}}</span></td>
+      <td>
+        <i
+          *ngIf="tx.transactionValue"
+          (mouseover)="showTransactionDetailsPopup(tx, $event)"
+          (mouseleave)="hideTransactionDetailsPopup()"
+          class="pi pi-info-circle"
+        ></i>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+
+<p-overlayPanel #txDetailsPopup appendTo="body"[style]="{'width': '550px', 'height': '200px'}">
+  <app-transaction-details #txDetails></app-transaction-details>
+</p-overlayPanel>

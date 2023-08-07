@@ -1,0 +1,42 @@
+<p-table
+  [value]="smartContracts"
+  [lazy]="true"
+  (onLazyLoad)="load($event)"
+  dataKey="address"
+  [paginator]="true"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [rows]="10"
+  [totalRecords]="totalRecords"
+  [loading]="loading"
+  sortField="created.createdAtDate"
+  [sortOrder]="1"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th pSortableColumn="created.createdAtDate">
+        Creation <p-sortIcon field="created.createdAtDate" />
+        </th>
+      <th>Count Txs</th>
+      <th>LRC-20</th>
+      <th>LRC-721</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-sc>
+    <tr>
+      <td>{{ sc.name }}</td>
+      <td><a href="/contract/{{sc.address}}">{{ sc.address }}</a></td>
+      <td>{{ sc.created.createdAtDate }}</td>
+      <td>{{ sc.transactionCount }}</td>
+      <td>
+        <i class="pi pi-check" *ngIf="sc.types.includes('_20')"></i>
+      </td>
+      <td>
+        <i class="pi pi-check" *ngIf="sc.types.includes('_721')"></i>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

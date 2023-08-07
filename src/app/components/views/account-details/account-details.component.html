@@ -1,0 +1,50 @@
+<div class="flex">
+
+  <p-card class="flex-grow-1 pr-2" header="{{account?.address + (account?.name ? ' ( ' + account?.name + ' )': '')}}">
+    <span class="flex">
+      <span class="flex-grow-1">{{'accountDetailsView.usdlTotal' | translate}}</span>
+      <span class="flex-grow-0">{{NumberConverter.bigDecimalToBig(account?.usdlTotal)}}</span>
+    </span>
+    <hr>
+
+    <span class="flex">
+      <span class="flex-grow-1">{{'accountDetailsView.usdlAvailable' | translate}}</span>
+      <span class="flex-grow-0">{{NumberConverter.bigDecimalToBig(account?.usdlAvailable)}}</span>
+    </span>
+    <hr>
+
+    <span class="flex">
+      <span class="flex-grow-1">{{'accountDetailsView.usdlFrozen' | translate}}</span>
+      <span class="flex-grow-0">{{NumberConverter.bigDecimalToBig(account?.usdlFrozen)}}</span>
+    </span>
+    <hr>
+
+    <span class="flex">
+      <span class="flex-grow-1">First seen at :</span>
+      <span class="flex-grow-0" *ngIf="account?.firstSeenAtBlock && account?.firstSeenAtBlock >= 0">Block #{{account?.firstSeenAtBlock}} ({{account?.firstSeenAtDate}})</span>
+      <span class="flex-grow-0" *ngIf="account?.firstSeenAtBlock && account?.firstSeenAtBlock == -1">Genesis</span>
+    </span>
+    <hr>
+  </p-card>
+
+  <p-card class="flex-grow-1" header="Assets">
+    <ng-container *ngFor="let asset of account?.assets; let first = first; let last = last">
+          <span class="flex" *ngIf="asset.value !== '0'">
+      <span class="flex-grow-1 pr-8">{{asset.symbol}}:</span>
+      <span class="flex-grow-0">{{asset.value}}</span>
+    </span>
+      <hr *ngIf="!last && asset.value !== '0'">
+    </ng-container>
+
+    <ng-container *ngIf="!(account?.assets && account?.assets.length > 0)">
+      No Assets :(
+    </ng-container>
+  </p-card>
+</div>
+
+<div class="flex pt-2">
+  <p-card class="flex-grow-1">
+    <app-transaction-history [address]="address"></app-transaction-history>
+  </p-card>
+</div>
+

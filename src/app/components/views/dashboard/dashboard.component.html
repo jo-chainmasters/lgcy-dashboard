@@ -1,0 +1,75 @@
+<div class="flex">
+
+  <p-card class="flex-grow-1 pr-2 pb-2">
+    {{'dashboard.currentBlock' | translate}}
+    <br>
+    <div style="font-size: xxx-large">
+      <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+      <span *ngIf="dashboardData"> {{ dashboardData.currentBlock }} </span>
+    </div>
+  </p-card>
+
+  <p-card class="flex-grow-1 pr-2 pb-2">
+    {{'dashboard.totalTransactions' | translate}}
+    <br>
+    <div style="font-size: xxx-large">
+      <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+      <span *ngIf="dashboardData"> {{ dashboardData.totalTransactions }} </span>
+    </div>
+  </p-card>
+
+  <p-card class="flex-grow-1 pr-2 pb-2">
+    {{'dashboard.totalAccounts' | translate}}
+    <br>
+    <div style="font-size: xxx-large">
+      <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+      <span *ngIf="dashboardData"> {{ dashboardData.totalAccounts }} </span>
+    </div>
+  </p-card>
+
+  <p-card class="flex-grow-1 pr-2 pb-2">
+    {{'dashboard.burntUsdlToday' | translate}}
+    <br>
+    <div style="font-size: xxx-large">
+      <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+      <span *ngIf="dashboardData"> {{ dashboardData.burntUsdl}} </span>
+    </div>
+  </p-card>
+
+  <p-card class="flex-grow-1 pr-2 pb-2">
+    {{'dashboard.totalNodes' | translate}}
+    <br>
+    <div style="font-size: xxx-large">
+      <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+      <span *ngIf="dashboardData"> {{ dashboardData.totalNodes }} </span>
+    </div>
+  </p-card>
+
+  <p-card class="flex-grow-1">
+    {{'dashboard.frozenLgcy' | translate}}
+    <br>
+    <div style="font-size: xxx-large">
+      <p-skeleton *ngIf="!dashboardData" width="15rem" height="3rem"></p-skeleton>
+      <span *ngIf="dashboardData"> {{ dashboardData.frozenLgcy }} </span>
+    </div>
+  </p-card>
+</div>
+
+
+<div class="flex">
+  <p-card class="w-6 pr-2">
+<!--    {{'dashboard.transactionCount' | translate}}-->
+<!--    <p-dropdown [options]="hourOptions" [(ngModel)]="selectedHours" optionLabel="name"-->
+<!--                (onChange)="onChangeHours($event)"></p-dropdown>-->
+<!--    {{'common.hours' | translate}}-->
+    <p-chart type="bar" [data]="dataHours" [options]="options" height="200"></p-chart>
+  </p-card>
+
+  <p-card class="w-6 flex-grow-1">
+<!--    {{'dashboard.transactionCount' | translate}}-->
+<!--    <p-dropdown [options]="dayOptions" [(ngModel)]="selectedDays" optionLabel="name"-->
+<!--                (onChange)="onChangeDays($event)"></p-dropdown>-->
+<!--    {{'common.days' | translate}}-->
+    <p-chart type="bar" [data]="dataDays" [options]="options" height="200"></p-chart>
+  </p-card>
+</div>

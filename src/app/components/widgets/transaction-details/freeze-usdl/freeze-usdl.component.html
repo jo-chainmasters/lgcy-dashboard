@@ -1,0 +1,14 @@
+<span class="flex">
+    <span class="flex-grow-1">{{'freezeUsdl.frozenBalance' | translate}}:</span>
+    <span class="flex-grow-0">{{ transaction.transactionValue.frozenBalance / 1000000 | number: '.8-8'}}</span>
+</span>
+<hr>
+<span class="flex">
+    <span class="flex-grow-1">{{'freezeUsdl.frozenDuration' | translate}}:</span>
+    <span class="flex-grow-0">{{ transaction.transactionValue.frozenDuration}}</span>
+</span>
+<hr>
+<span class="flex">
+    <span class="flex-grow-1">{{'freezeUsdl.resource' | translate}}:</span>
+    <span class="flex-grow-0">{{ transaction.transactionValue.resource === 1 ? ('freezeUsdl.usdlPower' | translate) : 'freezeUsdl.unknown'}}</span>
+</span>

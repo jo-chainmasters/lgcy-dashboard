@@ -1,0 +1,32 @@
+<p-table
+  [value]="accounts"
+  [lazy]="true"
+  (onLazyLoad)="load($event)"
+  dataKey="address"
+  [paginator]="true"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [rows]="10"
+  [totalRecords]="totalRecords"
+  [loading]="loading"
+  sortField="usdlBalance"
+  [sortOrder]="-1"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Address</th>
+      <th pSortableColumn="usdlBalance">
+        Balance <p-sortIcon field="usdlBalance" />
+      </th>
+      <th>First Seen</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-acc>
+    <tr>
+      <td><a href="/account/{{acc.address}}">{{ acc.address }}</a></td>
+      <td>{{ acc.usdlBalance | bigToHuman }}</td>
+      <td>{{ acc.firstSeen }}</td>
+    </tr>
+  </ng-template>
+</p-table>

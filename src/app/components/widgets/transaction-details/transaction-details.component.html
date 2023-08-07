@@ -1,0 +1,41 @@
+<app-transfer-usdl
+  *ngIf="tx?.type === 'TransferContract'"
+  [transaction]="tx"
+>
+</app-transfer-usdl>
+
+<app-trigger-smart-contract
+  *ngIf="tx?.type === 'TriggerSmartContract'"
+  [transaction]="tx"
+>
+</app-trigger-smart-contract>
+
+<app-create-smart-contract
+  *ngIf="tx?.type === 'CreateSmartContract'"
+  [transaction]="tx"
+>
+</app-create-smart-contract>
+
+<app-freeze-usdl
+  *ngIf="tx?.type === 'FreezeBalanceContract'"
+  [transaction]="tx"
+>
+</app-freeze-usdl>
+
+<app-unfreeze-usdl
+  *ngIf="tx?.type === 'UnfreezeBalanceContract'"
+  [transaction]="tx"
+>
+</app-unfreeze-usdl>
+
+<app-vote
+  *ngIf="tx?.type === 'VoteWitnessContract'"
+  [transaction]="tx"
+>
+</app-vote>
+
+<app-create-gb
+  *ngIf="tx?.type === 'WitnessCreateContract'"
+  [transaction]="tx"
+>
+</app-create-gb>

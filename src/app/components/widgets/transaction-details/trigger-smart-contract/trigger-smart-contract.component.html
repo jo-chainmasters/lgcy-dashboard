@@ -1,0 +1,31 @@
+<span class="flex">
+    <span class="flex-grow-1">{{'triggerSmartContract.contractAddress' | translate}}:</span>
+    <span class="flex-grow-0">{{ transaction.transactionInfo.contractAddress }}</span>
+</span>
+<hr>
+<span class="flex">
+    <span class="flex-grow-1">{{'triggerSmartContract.functionName' | translate}}:</span>
+    <span class="flex-grow-0">{{ transaction.contractCall.functionName }}</span>
+</span>
+<hr>
+<span class="flex">
+    <span class="flex-grow-1">{{'triggerSmartContract.functionValues' | translate}}:</span>
+    <span class="flex-grow-0">
+
+      <ng-container *ngFor="let pv of transaction.contractCall?.paramValues | keyvalue: originalOrder; let first = first; let last = last">
+      <span class="flex">
+        <span class="flex-grow-1 pr-8">{{pv.key}}</span>
+        <span class="flex-grow-0">{{pv.value}}</span>
+      </span>
+        <hr *ngIf="!last">
+        </ng-container>
+
+
+    </span>
+</span>
+<hr>
+<span class="flex">
+    <span class="flex-grow-1">{{'triggerSmartContract.usdlTransfer' | translate}}:</span>
+    <span class="flex-grow-0">{{ transaction.transactionValue.callValue }} USDL</span>
+</span>
+<hr>

@@ -1,0 +1,34 @@
+<p-table
+  [value]="tokens"
+  [lazy]="true"
+  (onLazyLoad)="load($event)"
+  dataKey="address"
+  [paginator]="true"
+  [showCurrentPageReport]="true"
+  currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+  [rows]="10"
+  [totalRecords]="totalRecords"
+  [loading]="loading"
+  sortField="created.createdAtDate"
+  [sortOrder]="1"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Type</th>
+      <th pSortableColumn="name">Name <p-sortIcon field="name" /></th>
+      <th>Symbol</th>
+      <th>Token ID</th>
+      <th>Decimals</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-t>
+    <tr>
+      <td>{{ t.type }}</td>
+      <td>{{ t.name }}</td>
+      <td>{{ t.symbol }}</td>
+      <td>{{ t.tokenId }}</td>
+      <td>{{ t.decimals }}</td>
+    </tr>
+  </ng-template>
+</p-table>

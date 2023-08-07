@@ -1,0 +1,98 @@
+{
+  "common": {
+    "searchWidget": {
+      "placeholder": "Address or transaction hash",
+      "search": "Search"
+    },
+    "transactionTypes": {
+      "TransferContract": "USDL Transfer",
+      "VoteWitnessContract": "Vote for GB",
+      "FreezeBalanceContract": "Freeze USDL",
+      "WithdrawBalanceContract": "Withdraw voting rewards",
+      "TriggerSmartContract": "Execute Contract function",
+      "UnfreezeBalanceContract": "Unfreeze USDL",
+      "CreateSmartContract": "Deploy Smart Contract",
+      "WitnessCreateContract": "Create new GB",
+      "UpdateBrokerageContract": "Update rewards percentage",
+      "AccountUpdateContract": "Update account infos",
+      "AccountPermissionUpdateContract": "Update Account permissions",
+      "TransferAssetContract": "LRC-10 Transfer",
+      "AssetIssueContract": "Create LRC-10 asset"
+    },
+    "hours": "hours",
+    "days": "days"
+  },
+  "dashboard": {
+    "currentBlock": "Current Block",
+    "totalTransactions": "Total Transactions",
+    "totalAccounts": "Total Accounts",
+    "totalNodes": "Total Nodes",
+    "frozenLgcy": "Frozen LGCY",
+    "transactionCount": "Transaction count of the last",
+    "burntUsdlToday": "USDL burnt today (fees)"
+  },
+  "transactionDetailsView": {
+    "hash": "Hash",
+    "blockNumber": "Block Number",
+    "type": "Type",
+    "status": "Status",
+    "time": "Timestamp",
+    "sender": "Sender"
+  },
+  "accountDetailsView": {
+    "usdlTotal": "USDL Balance (Total)",
+    "usdlAvailable": "USDL Balance (Available)",
+    "usdlFrozen": "USDL Frozen"
+
+
+  },
+  "createSmartContract": {
+    "name": "Name",
+    "contractAddress": "Contract address",
+    "consumeUserResourcePercent": "Fee pay ratio"
+  },
+  "triggerSmartContract": {
+    "contractAddress": "Contract Address",
+    "functionName": "Function Name",
+    "functionValues": "Function Values",
+    "usdlTransfer": "USDL Transfered"
+  },
+  "transferUsdl": {
+    "receiver": "Receiver",
+    "amount": "Amount"
+  },
+  "createGb": {
+    "url": "URL"
+  },
+  "freezeUsdl": {
+    "frozenBalance": "Amount",
+    "frozenDuration": "Duration",
+    "resource": "Resource",
+    "usdlPower": "USDL Power"
+  },
+  "unfreezeUsdl": {
+    "resource": "Resource",
+    "unfreezeAmount": "Unfreeze Amount"
+  },
+  "vote":{
+    "gb": "Governance Body",
+    "voteCount": "Vote Count"
+  },
+  "smartContractDetailsProjection": {
+    "generalInformations": {
+      "overviewTitle": "General Informations",
+      "name": "Name",
+      "totalAssets": "Total Assets",
+      "txCount": "Txn Count",
+      "creator": "Created By",
+      "createdOn": "Created On (UTC)",
+      "powerConsuptionRatio": "Power Consumption Ratio"
+    },
+    "callingData": {
+      "overviewTitle": "Function Call Chart"
+    },
+    "holderData": {
+      "overviewTitle": "Top Holders"
+    }
+  }
+}
