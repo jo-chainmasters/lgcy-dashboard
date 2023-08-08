@@ -41,6 +41,7 @@ import { TransactionOverviewComponent } from './components/views/transaction-ove
 import {BigToHumanPipe} from "./pipes/big-to-human.pipe";
 import { StringToHumanPipe } from './pipes/string-to-human.pipe';
 import { TokenOverviewComponent } from './components/views/token-overview/token-overview.component';
+import {TagModule} from "primeng/tag";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -96,7 +97,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ButtonModule,
     InputTextModule,
     MenubarModule,
-    TabViewModule
+    TabViewModule,
+    TagModule
   ],
   providers: [],
   bootstrap: [AppComponent]

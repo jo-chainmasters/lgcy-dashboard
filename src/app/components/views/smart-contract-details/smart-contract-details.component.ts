@@ -18,12 +18,6 @@ export class SmartContractDetailsComponent implements OnInit {
   public totalRecords = 0;
   public transactions: any[] = [];
 
-  @ViewChild('txDetailsPopup', {static: true})
-  overlay: OverlayPanel | undefined;
-
-  @ViewChild('txDetails', {static: true})
-  txDetailsComponent: TransactionDetailsComponent | undefined;
-
   public chartData: any;
   public chartOptions: any;
 
@@ -47,7 +41,6 @@ export class SmartContractDetailsComponent implements OnInit {
   }
 
   public load(event: LazyLoadEvent) {
-    console.log(event);
     this.loading = true;
     this.transactionService
       .loadPage(
@@ -55,26 +48,16 @@ export class SmartContractDetailsComponent implements OnInit {
         event.rows as number,
         event.sortField,
         event.sortOrder,
-        event.filters,
+        {
+          type: {matchMode: 'equals', value: 'TriggerSmartContract'},
+          'transactionValue.contractAddress': {matchMode: 'equals', value: this.contractAddress}
+        },
       )
       .subscribe((page: any) => {
         this.transactions = page.transactions as [];
         this.totalRecords = page.totalRecords;
         this.loading = false;
       });
-  }
-
-  public showTransactionDetailsPopup(tx: any, event: Event) {
-    if(this.overlay) {
-      // @ts-ignore
-      this.txDetailsComponent.tx =  tx;
-      this.overlay.show(event, event.target);
-    }
-  }
-
-  public hideTransactionDetailsPopup() {
-    if(this.overlay)
-      this.overlay.hide();
   }
 
   private mapData() {

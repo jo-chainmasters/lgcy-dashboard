@@ -24,6 +24,7 @@
       <th>Receiver</th>
       <th>Amount</th>
       <th>Fees</th>
+      <th>Status</th>
       <th>Memo</th>
       <th>Details</th>
     </tr>
@@ -52,6 +53,12 @@
       </td>
       <td>{{ tx.amount }}</td>
       <td>{{ tx.fee }}</td>
+      <td *ngIf="tx.successfull">
+        <p-tag icon="pi pi-check" severity="success" value="SUCCESS"></p-tag>
+      </td>
+      <td *ngIf="!tx.successfull">
+        <p-tag icon="pi pi-times" severity="danger" value="FAILED" [pTooltip]="tx.transactionInfo.resMessage"></p-tag>
+      </td>
       <td><span [pTooltip]="tx.memo">{{ tx.memo | cutDot: 7}}</span></td>
       <td>
         <i
